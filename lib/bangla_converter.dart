@@ -1,7 +1,3 @@
 library bangla_converter;
+export 'convert_file/convert_code.dart';
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
