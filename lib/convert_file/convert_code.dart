@@ -1,10 +1,10 @@
 class BanglaConverter {
+  //english to bangla converter method
   static String engToBan(inputValue) {
-
-    var strList = inputValue.toString().split('');
-    List<String> returnList = [];
-    for (var str in strList) {
-      switch (str) {
+    var strList = inputValue.toString().split(''); //convert to string and make a list
+    List<String> returnList = []; //declare a list variable
+    for (var str in strList) { //loop on the list
+      switch (str) { //switch case to convert number and add to the list
         case "0":
           returnList.add("০");
           break;
@@ -41,14 +41,15 @@ class BanglaConverter {
           break;
       }
     }
-    return returnList.join("");
+    return returnList.join(""); //return all join list
   }
 
+//bangla to english converter method
   static String banToEng(inputValue) {
-    var strList = inputValue.toString().split('');
-    List<String> returnList = [];
-    for (var str in strList) {
-      switch (str) {
+    var strList = inputValue.toString().split(''); //convert to string and make a list
+    List<String> returnList = []; //declare a list variable
+    for (var str in strList) { //loop on the list
+      switch (str) { //switch case to convert number and add to the list
         case "০":
           returnList.add("0");
           break;
@@ -86,7 +87,7 @@ class BanglaConverter {
       }
     }
 
-    return returnList.join("");
-  }
+    return returnList.join("");//return all join list
+  } 
 
 }

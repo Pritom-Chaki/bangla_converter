@@ -94,7 +94,7 @@ class MyHomePage extends StatelessWidget {
 }
 ```
 ## **Example Render UI**
-<img src="https://github.com/Pritom-Chaki/angla_converter/blob/main/example/images/example_ss.png?raw=true">
+<img src="https://github.com/Pritom-Chaki/bangla_converter/blob/main/example/images/example_ss.png?raw=true">
 
 ## **Contributions**
 
