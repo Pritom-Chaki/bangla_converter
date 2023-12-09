@@ -1,6 +1,6 @@
-//main converter class where all code
+///[BanglaConverter]main converter class where all code
 class BanglaConverter {
-  //english to bangla converter method
+  ///english to bangla [engToBan] converter method
   static String engToBan(inputValue) {
     //convert to string and make a list
     var strList = inputValue.toString().split('');
@@ -50,7 +50,7 @@ class BanglaConverter {
     return returnList.join("");
   }
 
-  //bangla to english converter method
+  ///bangla to english [banToEng] converter method
   static String banToEng(inputValue) {
     //convert to string and make a list
     var strList = inputValue.toString().split('');
