@@ -1,6 +1,6 @@
 name: bangla_converter
 description: Flutter package for convert Bangla Number to English Number or vice versa.
-version: 0.0.1
+version: 0.0.2
 # author: Pritom Chaki<hello.pritom.chaki@gmail.com>
 homepage: https://github.com/Pritom-Chaki/bangla_converter
 repository: https://github.com/Pritom-Chaki/bangla_converter
