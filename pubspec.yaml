@@ -4,9 +4,7 @@ version: 0.0.1
 # author: Pritom Chaki<hello.pritom.chaki@gmail.com>
 homepage: https://github.com/Pritom-Chaki/bangla_converter
 repository: https://github.com/Pritom-Chaki/bangla_converter
-screenshots:
-  - description: The 'Bangla Converter' Flutter package transforms numbers seamlessly between Bangla and English..
-    path: example/images/example_ss.png
+
 
 environment:
   sdk: '>=3.1.3 <4.0.0'

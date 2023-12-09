@@ -55,10 +55,10 @@ class MyHomePage extends StatelessWidget {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             Text(
-              "Input: $banglaPhoneNumber",
+              "Input: ০১৭৩৩-৪৫২XXX",
             ),
             Text(
-              "Output:  ${BanglaConverter.banToEng(banglaPhoneNumber)}",
+              "Output:  ${BanglaConverter.banToEng('০১৭৩৩-৪৫২XXX')}",
             ),
             const SizedBox(height: 10),
             const Text(
@@ -66,10 +66,10 @@ class MyHomePage extends StatelessWidget {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             Text(
-              "Input: $englishPhoneNumber",
+              "Input: 01733-452XXX",
             ),
             Text(
-              "Output:  ${BanglaConverter.engToBan(englishPhoneNumber)}",
+              "Output:  ${BanglaConverter.engToBan('01733-452XXX')}",
             ),
             const SizedBox(height: 10),
             const Text(
@@ -102,4 +102,4 @@ Contributions are welcome! If you encounter any issues or have suggestions for i
 
 ## **License**
 
-The 'Bangladesh' Flutter plugin is released under the **[MIT License](https://github.com/Pritom-Chaki/bangla_converter/blob/main/LICENSE)**.
+The 'Bangla Converter' Flutter plugin is released under the **[MIT License](https://github.com/Pritom-Chaki/bangla_converter/blob/main/LICENSE)**.

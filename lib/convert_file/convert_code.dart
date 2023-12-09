@@ -1,10 +1,15 @@
+//main converter class where all code
 class BanglaConverter {
   //english to bangla converter method
   static String engToBan(inputValue) {
-    var strList = inputValue.toString().split(''); //convert to string and make a list
-    List<String> returnList = []; //declare a list variable
-    for (var str in strList) { //loop on the list
-      switch (str) { //switch case to convert number and add to the list
+    //convert to string and make a list
+    var strList = inputValue.toString().split('');
+    //declare a list variable
+    List<String> returnList = [];
+    //loop on the list
+    for (var str in strList) {
+      //switch case to convert number and add to the list
+      switch (str) {
         case "0":
           returnList.add("০");
           break;
@@ -41,15 +46,20 @@ class BanglaConverter {
           break;
       }
     }
-    return returnList.join(""); //return all join list
+    //return all join list
+    return returnList.join("");
   }
 
-//bangla to english converter method
+  //bangla to english converter method
   static String banToEng(inputValue) {
-    var strList = inputValue.toString().split(''); //convert to string and make a list
-    List<String> returnList = []; //declare a list variable
-    for (var str in strList) { //loop on the list
-      switch (str) { //switch case to convert number and add to the list
+    //convert to string and make a list
+    var strList = inputValue.toString().split('');
+    //declare a list variable
+    List<String> returnList = [];
+    //loop on the list
+    for (var str in strList) {
+      //switch case to convert number and add to the list
+      switch (str) {
         case "০":
           returnList.add("0");
           break;
@@ -86,8 +96,7 @@ class BanglaConverter {
           break;
       }
     }
-
-    return returnList.join("");//return all join list
-  } 
-
+    //return all join list
+    return returnList.join("");
+  }
 }
