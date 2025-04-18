@@ -56,23 +56,15 @@ class _MyHomePageState extends State<MyHomePage> {
               'Bangla To English Converter',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            Text(
-              "Input: $banglaPhoneNumber",
-            ),
-            Text(
-              "Output:  ${BanglaConverter.banToEng(banglaPhoneNumber)}",
-            ),
+            Text("Input: $banglaPhoneNumber"),
+            Text("Output:  ${BanglaConverter.banToEng(banglaPhoneNumber)}"),
             const SizedBox(height: 10),
             const Text(
               'English To Bangla Converter',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            Text(
-              "Input: $englishPhoneNumber",
-            ),
-            Text(
-              "Output:  ${BanglaConverter.engToBan(englishPhoneNumber)}",
-            ),
+            Text("Input: $englishPhoneNumber"),
+            Text("Output:  ${BanglaConverter.engToBan(englishPhoneNumber)}"),
             const SizedBox(height: 10),
             const Text(
               'You have pushed the button this\nmany times in Bangla Language:',
