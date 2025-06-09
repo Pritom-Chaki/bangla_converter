@@ -1,3 +1,8 @@
+## 1.1.0
+
+* Bangla to English Date Converter 
+* English to Bangla Date Converter
+
 ## 1.0.0
 
 * Flutter version updated.
