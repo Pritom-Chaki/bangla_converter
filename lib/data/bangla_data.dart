@@ -1,7 +1,7 @@
 ///[BanglaData] BanglaData for Convert
 class BanglaData {
   // Bangla months
-  static List<String> banglaMonths = [
+  static const List<String> banglaMonths = [
     'বৈশাখ',
     'জ্যৈষ্ঠ',
     'আষাঢ়',
@@ -15,8 +15,9 @@ class BanglaData {
     'ফাল্গুন',
     'চৈত্র',
   ];
+
   // Bangla weekdays
-  static List<String> banglaWeekdays = [
+  static const List<String> banglaWeekdays = [
     'রবিবার',
     'সোমবার',
     'মঙ্গলবার',
@@ -24,5 +25,13 @@ class BanglaData {
     'বৃহস্পতিবার',
     'শুক্রবার',
     'শনিবার',
+  ];
+
+  // Days in each Bangla month (non-leap year)
+  // Months 1-5 (Boishakh to Bhadro): 31 days
+  // Months 6-11 (Ashwin to Falgun): 30 days
+  // Month 12 (Choitro): 30 days (31 in leap year)
+  static const List<int> banglaMonthDays = [
+    31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 30, 30,
   ];
 }

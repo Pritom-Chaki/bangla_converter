@@ -6,6 +6,7 @@ class BanglaDateReturn {
   final String? yearDescription;
   final String? weekDay;
   final String? weekDayDigit;
+
   BanglaDateReturn({
     this.date,
     this.month,
@@ -15,4 +16,35 @@ class BanglaDateReturn {
     this.weekDay,
     this.weekDayDigit,
   });
+
+  @override
+  String toString() {
+    return '$date $month $year ${yearDescription ?? ''}, ${weekDay ?? ''}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    return other is BanglaDateReturn &&
+        other.date == date &&
+        other.month == month &&
+        other.monthDigit == monthDigit &&
+        other.year == year &&
+        other.yearDescription == yearDescription &&
+        other.weekDay == weekDay &&
+        other.weekDayDigit == weekDayDigit;
+  }
+
+  @override
+  int get hashCode {
+    return Object.hash(
+      date,
+      month,
+      monthDigit,
+      year,
+      yearDescription,
+      weekDay,
+      weekDayDigit,
+    );
+  }
 }

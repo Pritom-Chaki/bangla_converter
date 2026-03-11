@@ -1,169 +1,114 @@
-/// import [bangla_data] class
-import 'package:flutter/material.dart';
-
 import '../data/bangla_data.dart';
-
-/// import [bangla_date_return_model] class
 import '../model/bangla_date_return_model.dart';
 
 ///[BanglaConverter]main converter class where all code
 class BanglaConverter {
-  ///english to bangla [engToBan] converter method
-  static String engToBan(inputValue) {
-    //convert to string and make a list
-    var strList = inputValue.toString().split('');
-    //declare a list variable
-    List<String> returnList = [];
-    //loop on the list
-    for (var str in strList) {
-      //switch case to convert number and add to the list
-      switch (str) {
-        case "0":
-          returnList.add("০");
-          break;
-        case "1":
-          returnList.add("১");
-          break;
-        case "2":
-          returnList.add("২");
-          break;
-        case "3":
-          returnList.add("৩");
-          break;
-        case "4":
-          returnList.add("৪");
-          break;
-        case "5":
-          returnList.add("৫");
-          break;
-        case "6":
-          returnList.add("৬");
-          break;
+  static const Map<String, String> _engToBanMap = {
+    '0': '০',
+    '1': '১',
+    '2': '২',
+    '3': '৩',
+    '4': '৪',
+    '5': '৫',
+    '6': '৬',
+    '7': '৭',
+    '8': '৮',
+    '9': '৯',
+  };
 
-        case "7":
-          returnList.add("৭");
-          break;
-        case "8":
-          returnList.add("৮");
-          break;
-        case "9":
-          returnList.add("৯");
-          break;
-        default:
-          returnList.add(str);
-          break;
-      }
-    }
-    //return all join list
-    return returnList.join("");
+  static const Map<String, String> _banToEngMap = {
+    '০': '0',
+    '১': '1',
+    '২': '2',
+    '৩': '3',
+    '৪': '4',
+    '৫': '5',
+    '৬': '6',
+    '৭': '7',
+    '৮': '8',
+    '৯': '9',
+  };
+
+  ///english to bangla [engToBan] converter method
+  static String engToBan(dynamic inputValue) {
+    return inputValue
+        .toString()
+        .split('')
+        .map((ch) => _engToBanMap[ch] ?? ch)
+        .join('');
   }
 
   ///bangla to english [banToEng] converter method
-  static String banToEng(inputValue) {
-    //convert to string and make a list
-    var strList = inputValue.toString().split('');
-    //declare a list variable
-    List<String> returnList = [];
-    //loop on the list
-    for (var str in strList) {
-      //switch case to convert number and add to the list
-      switch (str) {
-        case "০":
-          returnList.add("0");
-          break;
-        case "১":
-          returnList.add("1");
-          break;
-        case "২":
-          returnList.add("2");
-          break;
-        case "৩":
-          returnList.add("3");
-          break;
-        case "৪":
-          returnList.add("4");
-          break;
-        case "৫":
-          returnList.add("5");
-          break;
-        case "৬":
-          returnList.add("6");
-          break;
+  static String banToEng(dynamic inputValue) {
+    return inputValue
+        .toString()
+        .split('')
+        .map((ch) => _banToEngMap[ch] ?? ch)
+        .join('');
+  }
 
-        case "৭":
-          returnList.add("7");
-          break;
-        case "৮":
-          returnList.add("8");
-          break;
-        case "৯":
-          returnList.add("9");
-          break;
-        default:
-          returnList.add(str);
-          break;
-      }
+  /// Calculates the Bangla month index and day from a day difference
+  /// using actual Bangla month lengths.
+  static List<int> _banglaMonthAndDay(int dayDifference) {
+    int monthIndex = 0;
+    int remaining = dayDifference;
+    while (monthIndex < 12 && remaining >= BanglaData.banglaMonthDays[monthIndex]) {
+      remaining -= BanglaData.banglaMonthDays[monthIndex];
+      monthIndex++;
     }
-    //return all join list
-    return returnList.join("");
+    if (monthIndex >= 12) {
+      monthIndex = 11;
+      remaining = 0;
+    }
+    return [monthIndex, remaining + 1];
   }
 
   ///english date to bangla date [banglaDate] converter method
   static BanglaDateReturn? banglaDate({
     DateTime? englishDate,
-    day,
-    month,
-    year,
+    int? day,
+    int? month,
+    int? year,
     bool isToday = false,
   }) {
     try {
-      // Parse the input date (format: DD-MM-YYYY)
-      DateTime? date = DateTime.now();
-      int cDay = date.day;
-      int cMonth = date.month;
-      int cYear = date.year;
-      if (!isToday) {
-        // Create a DateTime object
-        if (englishDate == null) {
-          cDay = int.parse(day.toString());
-          cMonth = int.parse(month.toString());
-          cYear = int.parse(year.toString());
-          date = DateTime(cYear, cMonth, cDay);
-        } else {
-          date = englishDate;
-          cDay = date.day;
-          cMonth = date.month;
-          cYear = date.year;
-        }
-      }
-      if (date == null) {
+      DateTime date;
+      if (isToday) {
+        date = DateTime.now();
+      } else if (englishDate != null) {
+        date = englishDate;
+      } else if (day != null && month != null && year != null) {
+        date = DateTime(year, month, day);
+      } else {
         return null;
       }
 
+      int cDay = date.day;
+      int cMonth = date.month;
+      int cYear = date.year;
+
       // Calculate Bangla year
-      int banglaYear =
-          cYear - 593; // Approximate adjustment (593 or 594 based on date)
+      int banglaYear = cYear - 593;
       if (cMonth < 4 || (cMonth == 4 && cDay < 14)) {
-        banglaYear = banglaYear - 1; // Adjust for Bangla new year (mid-April)
+        banglaYear = banglaYear - 1;
       }
 
-      // Approximate Bangla month based on Gregorian date
-      // Bangla new year starts around April 14
+      // Calculate Bangla month and day using actual month lengths
       int banglaMonthIndex;
       int banglaDay;
 
-      if (cMonth == 4 && cDay >= 14 || cMonth > 4) {
-        // After April 14, map to Bangla months
+      if ((cMonth == 4 && cDay >= 14) || cMonth > 4) {
         DateTime banglaNewYear = DateTime(cYear, 4, 14);
         int dayDifference = date.difference(banglaNewYear).inDays;
-        banglaMonthIndex = (dayDifference ~/ 30) % 12;
-        banglaDay = (dayDifference % 30) + 1;
+        var result = _banglaMonthAndDay(dayDifference);
+        banglaMonthIndex = result[0];
+        banglaDay = result[1];
       } else {
-        // Before April 14, belongs to previous Bangla year
         DateTime prevBanglaNewYear = DateTime(cYear - 1, 4, 14);
         int dayDifference = date.difference(prevBanglaNewYear).inDays;
-        banglaMonthIndex = (dayDifference ~/ 30) % 12;
-        banglaDay = (dayDifference % 30) + 1;
+        var result = _banglaMonthAndDay(dayDifference);
+        banglaMonthIndex = result[0];
+        banglaDay = result[1];
       }
 
       // Adjust negative month index
@@ -185,60 +130,56 @@ class BanglaConverter {
         ordinalSuffix = 'রা';
       }
 
-      // Construct the Bangla date string
       return BanglaDateReturn(
         date: "$banglaDayStr$ordinalSuffix",
         month: BanglaData.banglaMonths[banglaMonthIndex],
-        monthDigit: banglaMonthIndex.toString(),
+        monthDigit: (banglaMonthIndex + 1).toString(),
         weekDay: banglaWeekday,
         weekDayDigit: date.weekday.toString(),
         year: banglaYearStr,
         yearDescription: "বঙ্গাব্দ",
       );
-    } catch ($e) {
-      throw FormatException('Invalid Date components');
-      return null;
+    } catch (e) {
+      throw FormatException('Invalid Date components: $e');
     }
   }
 
-  ///bangla date to english  date[englishDate] converter method
-  static DateTime englishDate({banglaDay, banglaMonth, banglaYear}) {
-    int banglaCDay = int.parse(banglaDay.toString());
-    int banglaCMonth = int.parse(banglaMonth.toString());
-    int banglaCYear = int.parse(banglaYear.toString());
+  ///bangla date to english date [englishDate] converter method
+  static DateTime englishDate({
+    required int banglaDay,
+    required int banglaMonth,
+    required int banglaYear,
+  }) {
     // Validate inputs
-    if (banglaCDay < 1 ||
-        banglaCDay > 31 ||
-        banglaCMonth < 1 ||
-        banglaCMonth > 12) {
+    if (banglaDay < 1 ||
+        banglaDay > 31 ||
+        banglaMonth < 1 ||
+        banglaMonth > 12) {
       throw FormatException('Invalid Bangla date components');
     }
 
     // Calculate Gregorian year
-    int gregorianYear = banglaCYear + 593;
+    int gregorianYear = banglaYear + 593;
 
-    if (banglaCMonth >= 9) {
-      // After Poush (mid-December), may belong to next Gregorian year
+    if (banglaMonth >= 9) {
       gregorianYear += 1;
     }
 
     // Bangla New Year starts around April 14
     DateTime banglaNewYear = DateTime(gregorianYear, 4, 14);
 
-    // Calculate days since Bangla New Year
-    // Assume approximately 30 days per month for simplicity
-    int daysSinceNewYear = ((banglaCMonth - 1) * 30) + (banglaCDay - 1);
+    // Calculate days since Bangla New Year using actual month lengths
+    int daysSinceNewYear = 0;
+    for (int i = 0; i < banglaMonth - 1; i++) {
+      daysSinceNewYear += BanglaData.banglaMonthDays[i];
+    }
+    daysSinceNewYear += (banglaDay - 1);
 
     // Calculate Gregorian date
     DateTime gregorianDate = banglaNewYear.add(
       Duration(days: daysSinceNewYear),
     );
 
-    // Format the Gregorian date as YYYY-MM-DD
-    String year = gregorianDate.year.toString();
-    String month = gregorianDate.month.toString().padLeft(2, '0');
-    String day = gregorianDate.day.toString().padLeft(2, '0');
-
-    return DateTime(int.parse(year), int.parse(month), int.parse(day));
+    return gregorianDate;
   }
 }

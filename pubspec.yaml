@@ -1,9 +1,14 @@
 name: bangla_converter
-description: Flutter package for convert Bangla Number to English Number or vice versa.
-version: 1.1.0
-# author: Pritom Chaki<hello.pritom.chaki@gmail.com>
+description: Flutter package for converting Bangla Number to English Number or vice versa, with Bangla and English date conversion support.
+version: 2.0.0
 homepage: https://github.com/Pritom-Chaki/bangla_converter
 repository: https://github.com/Pritom-Chaki/bangla_converter
+issue_tracker: https://github.com/Pritom-Chaki/bangla_converter/issues
+topics:
+  - bangla
+  - bengali
+  - localization
+  - converter
 
 environment:
   sdk: ^3.7.2
