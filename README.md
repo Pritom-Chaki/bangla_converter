@@ -205,6 +205,8 @@ class _MyHomePageState extends State<MyHomePage> {
 ## **Example Render UI**
 <img src="https://github.com/Pritom-Chaki/bangla_converter/blob/main/example/images/example_ss.png?raw=true">
 
+[![Contact Me]("https://github.com/Pritom-Chaki/bangla_converter/blob/main/example/images/contact_me.gif?raw=true")](https://www.pritom.me/contact?source=pubget)
+
 ## **Contributions**
 
 Contributions are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
