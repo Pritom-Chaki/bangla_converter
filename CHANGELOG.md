@@ -1,3 +1,7 @@
+## 2.0.1
+
+* Update README.md file.
+
 ## 2.0.0
 
 * **BREAKING:** `banglaDate()` parameters `day`, `month`, `year` now accept `int?` instead of `dynamic`.

@@ -1,7 +1,16 @@
 
+
+> The Bangla Converter Flutter package seamlessly converts numbers between Bangla and English, helping developers build localized, globally adaptable apps with better numeric communication.
+
+[![Package Version](https://img.shields.io/pub/v/bangla_converter?color=teal&style=plastic)](https://pub.dev/packages/bangla_converter "Published package version")
+[![LICENSE](https://img.shields.io/badge/License-MIT-red.svg?style=plastic)](https://github.com/Pritom-Chaki/bangla_converter/blob/main/LICENSE "Project's LICENSE")
+[![Last Commit](https://img.shields.io/github/last-commit/Pritom-Chaki/bangla_converter.svg?logo=github&style=plastic)](https://github.com/Pritom-Chaki/bangla_converter)
+
+
 # **Bangla Converter**
 
 The 'Bangla Converter' Flutter package transforms numbers seamlessly between Bangla and English, aiding developers in creating globally adaptable applications, improving numeric communication in various contexts, supporting localization efforts, and serving as an educational reference for implementing similar functionalities.
+
 
 ## **Features**
 
@@ -203,14 +212,29 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 ## **Example Render UI**
-<img src="https://github.com/Pritom-Chaki/bangla_converter/blob/main/example/images/example_ss.png?raw=true">
+<img src="https://raw.githubusercontent.com/Pritom-Chaki/bangla_converter/main/example/images/example_ss.png?raw=true">
 
-[![Contact Me]("https://github.com/Pritom-Chaki/bangla_converter/blob/main/example/images/contact_me.gif?raw=true")](https://www.pritom.me/contact?source=pubget)
+[![Contact Me](https://www.pritom.me/assets/contact_me.gif?raw=true)](https://www.pritom.me/contact?source=pubget)
+
+## **Demo**
+
+For a complete example app, see the [example directory](https://github.com/Pritom-Chaki/bangla_converter/tree/main/example).
+
+
+## **Help**
+
+Found a bug? [Report it here.](https://github.com/Pritom-Chaki/bangla_converter/issues/new?assignees=&labels=&template=bug_report.md&title=)
+Have a feature request? [Request it here.](https://github.com/Pritom-Chaki/bangla_converter/issues/new?assignees=&labels=&template=feature_request.md&title=)
+
+## **Changelog**
+
+See [CHANGELOG.md](CHANGELOG.md) for detailed version history.
 
 ## **Contributions**
 
 Contributions are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
+
 ## **License**
 
-The 'Bangla Converter' Flutter plugin is released under the **[MIT License](https://github.com/Pritom-Chaki/bangla_converter/blob/main/LICENSE)**.
+Released under the [MIT License](LICENSE).
